@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import { Form } from 'react-bootstrap';
 import { EnterRoom } from './EnterRoom';
 
-const socket = io('http://localhost:4000')
+const socket = io('https://chat-app-server-ford.herokuapp.com/')
 
 const Dashboard = () => {
     const [messages, setMessages] = useState([])

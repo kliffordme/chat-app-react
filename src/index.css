@@ -11,3 +11,61 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#border{
+  margin: 1rem auto;
+  height: 50vh;
+  width: 90%;
+  border: 1px solid rgb(201, 181, 181);
+  overflow: auto;
+}
+
+#userId{
+  width: 80%;
+  margin: auto;
+}
+
+#nameInput{
+  margin: auto;
+  width: 40%;
+  height: 40%;
+}
+
+#test{
+  overflow: auto;
+}
+
+#sender{
+  background-color: rgb(161, 153, 153);
+  padding: 1rem;
+  margin: 1rem;
+  color: white;
+}
+
+#you{
+  color: white;
+  background-color: rgb(90, 49, 238);
+  padding: 1rem;
+  margin: 1rem;
+  
+}
+
+#namePage{
+  width: 30%;
+  height: 30%;
+  margin: 10rem auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgb(201, 181, 181);
+}
+
+
+@media (min-width: 660px) {
+  #dashboard{
+    width: 30%;
+    height: 100%;
+    margin: 2rem auto;
+    border: 1px solid rgb(201, 181, 181);
+    padding: 1rem;
+  }
+} 

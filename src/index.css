@@ -56,7 +56,9 @@ code {
   padding: 1.5rem;
   border-radius: 1rem;
 }
-
+#dashboard{
+  padding: 2rem 0;
+}
 
 
 @media (min-width: 660px) {

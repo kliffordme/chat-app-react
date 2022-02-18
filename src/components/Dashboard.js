@@ -50,35 +50,7 @@ const Dashboard = () => {
     }
 
 
-    useEffect(()=>{
-
-        socket.on('connect', ()=>{
-            setformData({
-                name: localStorage.getItem('name'),
-                message: formData.message,
-                userId: socket.id,
-            })
-        })
-
-        socket.on('receive', data =>{
-            setMessages(messages => [...messages, data])
-        })
-
-        const listener = event => {
-            if (event.code === "Enter" || event.code === "NumpadEnter") {
-              console.log("Enter key was pressed. Run your function.");
-              event.preventDefault();
-              // callMyFunction();
-              
-            }
-          };
-          document.addEventListener("keydown", listener);
-          return () => {
-            document.removeEventListener("keydown", listener);
-          };
-    },[])
-
-
+    
     const onSubmit = () => {
         if(formData.message === ''){
             return
@@ -93,6 +65,44 @@ const Dashboard = () => {
     }
 
 
+
+    useEffect(()=>{
+
+        socket.on('connect', ()=>{
+            setformData({
+                name: localStorage.getItem('name'),
+                message: formData.message,
+                userId: socket.id,
+            })
+        })
+
+        socket.on('receive', data =>{
+            setMessages(messages => [...messages, data])
+        })
+
+        // const listener = event => {
+        //     if (event.code === "Enter" || event.code === "NumpadEnter") {
+        //       console.log("Enter key was pressed. Run your function.");
+        //        getData()
+
+        //       event.preventDefault();
+              
+        //     }
+        //   };
+        //   document.addEventListener("keydown", listener);
+        //   return () => {
+        //     document.removeEventListener("keydown", listener);
+        //   };
+    },[])
+
+
+
+
+    const handleKeyDown = (e) => {
+        if(e.keyCode === 13){
+            onSubmit()
+        }
+    }
 
   return (
     <div  >
@@ -124,7 +134,7 @@ const Dashboard = () => {
                         ID: {formData.userId} 
                         </div>
                     </div>
-                    <textarea className='mb-2' value={formData.message} onChange={(e)=>formHandler('message', e.target.value)} placeholder='write something' />
+                    <textarea className='mb-2' onKeyDown={(e)=>handleKeyDown(e)} value={formData.message} onChange={(e)=>formHandler('message', e.target.value)} placeholder='write something' />
                     <Button  onClick={onSubmit}>Enter</Button>
                 </div>
                 <div className='d-flex justify-content-center'>
